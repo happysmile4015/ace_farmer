@@ -39,6 +39,7 @@ class _HomeWidgetState extends StateMVC<Home> {
 
   @override
   Widget build(BuildContext context) {
+    var month = DateTime.now().toString();
     return Scaffold(
       backgroundColor: CONSTANTS.background,
       body: Stack(
@@ -65,29 +66,51 @@ class _HomeWidgetState extends StateMVC<Home> {
                         fontSize: CONSTANTS.smallSize.toDouble()
                       ),
                     ),
-                    Row(
-                      children: [
-                        Text(
-                          data['currencyType'],
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: CONSTANTS.mediumSize.toDouble(),
-                          ),
-                        ),
-                        Text(
-                          data['currencyPoint'],
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: CONSTANTS.mediumSize.toDouble(),
-                          ),
-                        )
-                      ]
+                    Container(
+                      margin: EdgeInsets.only(top: 10),
+                      child: Row(
+                          children: [
+                            Text(
+                              data['currencyType'] + " ",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: CONSTANTS.mediumSize.toDouble(),
+                              ),
+                            ),
+                            Text(
+                              data['currencyPoint'],
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: CONSTANTS.mediumSize.toDouble(),
+                              ),
+                            )
+                          ]
+                      ),
                     ),
-                    Text(
-                      "afasd",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: CONSTANTS.mediumSize.toDouble()
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(20))
+                      ),
+                      padding: EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
+                      margin: EdgeInsets.only(top: 10),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.arrow_circle_up_rounded,
+                            color: CONSTANTS.primary,
+                            size: 20,
+                          ),
+                          Container(
+                            child: Text(
+                              " " + data['experience'] + "%",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: CONSTANTS.smallSize.toDouble()
+                              ),
+                            ),
+                          )
+                        ],
                       ),
                     ),
                   ],
@@ -96,12 +119,31 @@ class _HomeWidgetState extends StateMVC<Home> {
             ),
           ),
           Positioned(
-            top: config.App(context).appHeight(42) - 70,
+            top: config.App(context).appHeight(42) - 80,
             child: Container(
-              height: 70,
+              height: 80,
               width: config.App(context).appWidth(100),
               decoration: BoxDecoration(
-                color: Colors.white
+                  color: CONSTANTS.transparentBackgroundColor,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20)
+                )
+              ),
+              child: Center(
+                child: Column(
+                  children: [
+                    Text(
+                      'Exchange Update',
+                      style: TextStyle(
+                        color: Colors.white
+                      ),
+                    ),
+                    Text(
+                      month
+                    )
+                  ],
+                ),
               ),
             ),
           )

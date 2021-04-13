@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 const background = Color(0xFFE0E0E0);
 const primary = Color(0xff16c79a);
 const secondary = Color(0xfff8a04e);
+const transparentBackgroundColor = Color(0xff7ce2c8);
 
 //color of home page
 const scan = Color(0xff3fabe4);
@@ -14,3 +15,4 @@ const history = Color(0xff16c79a);
 //font size
 const mediumSize = 22;
 const smallSize = 18;
+const verySmallSize = 14;
